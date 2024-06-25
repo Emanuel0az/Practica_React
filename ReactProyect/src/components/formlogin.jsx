@@ -10,12 +10,13 @@ function formlogin() {
 
   const validate = () => {
     let inputErrors = {};
-    if (!email) inputErrors.email = 'El correo electrónico es obligatorio';//valida si no hay nada escrito y envia un mensaje
-    if (!password) inputErrors.password = 'La contraseña es obligatoria';//valida si no hay nada escrito y envia un mensaje
+    if (!email) inputErrors.email = '';//valida si no hay nada escrito y envia un mensaje
+    if (!password) inputErrors.password = '';//valida si no hay nada escrito y envia un mensaje
     return inputErrors;
   };
-  let userAutenticated = false //variable declarada como false para usar en un useNavigate
+  
   const navigate = useNavigate() //uso del useNavigate
+
   const handleSubmit = async (event) => { // evento tipo submit al boton del login
     event.preventDefault();
     const inputErrors = validate(); // llama a la funcion que valida los espacios vacios
@@ -29,17 +30,12 @@ function formlogin() {
         console.log('Formulario enviado', { email, password }); // mensaje en la consola 
         alert('Login Exitoso'); // alerta de inicio de sesion exitoso
         navigate('/dashboard'); // metodo que redirige a otra pagina una vez echo el login
-        userAutenticated = true  // tranforma a la variable en true
-        if (userAutenticated === true) { // validacion para redirigir
-          navigate('/dashboard')
-        }
-
       }
     
       
     } else {
         setErrors(inputErrors); // si hay un error lo muestra en pantalla o en consola
-
+        alert('Ingrese datos')
     }
   };
 
@@ -58,7 +54,7 @@ function formlogin() {
             <div className="login_css">
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Correo electrónico</label><br />
+                    <label><strong>Correo electrónico</strong></label><br />
                     <input
                         type="email"
                         value={email}
@@ -70,7 +66,7 @@ function formlogin() {
                     {errors.email && <span>{errors.email}</span>}
                 </div>
                 <div>
-                    <label>Contraseña</label><br />
+                    <label><strong>Contraseña</strong></label><br />
                     <input
                         type="password"
                         value={password}

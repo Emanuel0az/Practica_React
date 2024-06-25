@@ -14,9 +14,9 @@ function Formregistro() {
   // valida espacios vacios en los inputs y pone un mensaje
   const validate = () => {
       let inputErrors = {};
-      if (!username) inputErrors.username = 'El nombre de usuario es obligatorio';
-      if (!email) inputErrors.email = 'El correo electrónico es obligatorio';
-      if (!password) inputErrors.password = 'La contraseña es obligatoria';
+      if (!username) inputErrors.username = '';
+      if (!email) inputErrors.email = '';
+      if (!password) inputErrors.password = '';
       return inputErrors;
   };
   let userAutenticated = false
@@ -39,7 +39,7 @@ function Formregistro() {
       
     } else {
         setErrors(inputErrors);
-
+        alert ('Ingrese datos')
     }
   };
 
@@ -63,7 +63,7 @@ function Formregistro() {
     <div className="registro_css">
     <form onSubmit={handleSubmit}>
         <div>
-            <label>Nombre de usuario</label>
+            <label><strong>Nombre de usuario</strong></label>
             <input
                 type="text"
                 value={username}
@@ -74,7 +74,7 @@ function Formregistro() {
             {errors.username && <span>{errors.username}</span>}
         </div>
         <div>
-            <label>Correo electrónico</label>
+            <label> <strong>Correo electrónico</strong></label>
             <input
                 type="email"
                 value={email}
@@ -85,7 +85,7 @@ function Formregistro() {
             {errors.email && <span>{errors.email}</span>}
         </div>
         <div>
-            <label>Contraseña</label>
+            <label><strong>Contraseña</strong></label>
             <input
                 type="password"
                 value={password}

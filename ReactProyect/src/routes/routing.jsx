@@ -6,6 +6,7 @@ import Login from '../pages/login'
 import Users from '../pages/users'
 import Register from '../pages/register'
 import { Home } from "../pages/home"
+import { PrivateRoutes } from "./privateRoute"
 
 function routing() {
   return (
@@ -17,8 +18,12 @@ function routing() {
                      <Route path='/login' element={<Login/>}   />
                      <Route path='/users' element={<Users/>}   />
                      <Route path='' element={<Home/>}   />
-                     <Route path="dashboard" element={<Users/>} />
-
+                     <Route path="dashboard" element={
+                        <PrivateRoutes>
+                        <Users />
+                       </PrivateRoutes>
+                     } />
+                     
                 
             </Routes>
         </Router>
