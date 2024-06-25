@@ -6,16 +6,10 @@
       "email": "john@gmail.com"
     },
     {
-      "id": "19c6",
+      "id": "7680",
       "usuario": "ema",
       "correo": "ema@gmail.com",
       "clave": "1234"
-    },
-    {
-      "id": "abd1",
-      "usuario": "zoro",
-      "correo": "zoro@gmail.com",
-      "clave": "12345"
     }
   ]
 }

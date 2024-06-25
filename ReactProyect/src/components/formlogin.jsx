@@ -16,7 +16,6 @@ function formlogin() {
   };
   
   const navigate = useNavigate() //uso del useNavigate
-
   const handleSubmit = async (event) => { // evento tipo submit al boton del login
     event.preventDefault();
     const inputErrors = validate(); // llama a la funcion que valida los espacios vacios
@@ -25,8 +24,9 @@ function formlogin() {
 
       const result = await login(email,password) //variable que espera al llamado de la api
       const user = result.find(user => user.correo === email && user.clave === password); // validacion para encontrar al usuario 
-
+      
       if (user) { // validacion para alertas y links
+        localStorage.setItem ('UserId',user.id)
         console.log('Formulario enviado', { email, password }); // mensaje en la consola 
         alert('Login Exitoso'); // alerta de inicio de sesion exitoso
         navigate('/dashboard'); // metodo que redirige a otra pagina una vez echo el login
@@ -38,7 +38,6 @@ function formlogin() {
         alert('Ingrese datos')
     }
   };
-
 
  
 
@@ -87,4 +86,5 @@ function formlogin() {
   )
 }
 
+// export {ruta}
 export default formlogin

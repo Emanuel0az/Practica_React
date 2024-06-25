@@ -18,6 +18,8 @@ function routing() {
                      <Route path='/login' element={<Login/>}   />
                      <Route path='/users' element={<Users/>}   />
                      <Route path='' element={<Home/>}   />
+                     <Route path='/home' element={<Home/>}   />
+
                      <Route path="dashboard" element={
                         <PrivateRoutes>
                         <Users />
